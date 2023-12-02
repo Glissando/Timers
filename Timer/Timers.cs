@@ -1,4 +1,4 @@
-﻿namespace Timer
+﻿namespace GameTime
 {
     public class Timers
     {
