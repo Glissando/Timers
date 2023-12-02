@@ -16,6 +16,8 @@ steps:
 - task: gitversion/execute@0
   displayName: 'Calculate SemVer'
   name: Version
+  inputs:
+      useConfigFile: true
 
 - task: DotNetCoreCLI@2
   inputs:
