@@ -6,6 +6,7 @@ pool:
 
 steps:
 - checkout: self
+  persistCredentials: true
   fetchDepth: 0
 
 - task: gitversion/setup@0
@@ -45,3 +46,8 @@ steps:
     packagesToPush: '$(Build.ArtifactStagingDirectory)/packages/*.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'Gamedev/gamedev'
+
+- script: |
+    git tag $(GitVersion.NugetVersionV2)
+    git push origin $(GitVersion.NugetVersionV2)
+  workingDirectory: $(Build.SourcesDirectory)
