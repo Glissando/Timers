@@ -20,13 +20,13 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '/*.csproj'
+    projects: '$(projects)'
     arguments: '--configuration Release'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '/*.csproj'
+    packagesToPack: '$(projects)'
     versioningScheme: 'byEnvVar'
     versionEnvVar: GitVersion_MajorMinorPatch
     packDirectory: '$(Build.ArtifactStagingDirectory)/packages'
