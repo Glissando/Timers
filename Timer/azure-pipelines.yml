@@ -37,7 +37,7 @@ steps:
       Write-Host "Doing git checkout..." -ForegroundColor Cyan
       git checkout -b $("$(Build.SourceBranchName)".replace('refs/heads/', ''))
       Write-Host "Checking Pull Request description..." -ForegroundColor Cyan
-      $PRdesc = "$(PullRequest.DescriptionContent)"
+      $PRdesc = $(RetrievePullRequestDescription.PullRequest.DescriptionContent)
       if ($PRdesc -match '(\[x\] \bFix\b)') {
         Write-Host "Adding git (empty) commit message to mark this branch as a 'patch' SemVer increment." -ForegroundColor Cyan
         git commit -a -m "+semver: patch [skip azurepipelines]" --allow-empty
