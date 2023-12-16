@@ -40,12 +40,15 @@ steps:
       $PRdesc = "$(RetrievePullRequestDescription.PullRequest.DescriptionContent)"
       if ($PRdesc -match '(\[x\] \bFix\b)') {
         Write-Host "Adding git (empty) commit message to mark this branch as a 'patch' SemVer increment." -ForegroundColor Cyan
+        git pull
         git commit -a -m "+semver: patch [skip azurepipelines]" --allow-empty
       } elseif ($PRdesc -match '(\[x\] \bFeature\b)') {
         Write-Host "Adding git (empty) commit message to mark this branch as a 'minor' SemVer increment." -ForegroundColor Cyan
+        git pull
         git commit -a -m "+semver: minor [skip azurepipelines]" --allow-empty
       } elseif ($PRdesc -match '(\[x\] \bBig\b)') {
         Write-Host "Adding git (empty) commit message to mark this branch as a 'major' SemVer increment." -ForegroundColor Cyan
+        git pull
         git commit -a -m "+semver: major [skip azurepipelines]" --allow-empty
       } else {
         Write-Host "##vso[task.LogIssue type=error;]Please select the type of change in the Pull Request description, and Re-queue the validation." -ForegroundColor Cyan
