@@ -21,16 +21,29 @@
             _timers = new List<Timer>();
         }
 
-        public Timer Add(Action function, float time)
+        /// <summary>
+        /// Adds a Timer to this Timers instance
+        /// </summary>
+        /// <param name="duration">How long this timer will last.</param>
+        /// <param name="callback">An action that will be called when this timer finishes.</param>
+        /// <returns></returns>
+        public Timer Add(float duration, Action callback)
         {
-            var timer = new Timer(function, time);
+            var timer = new Timer(duration, callback);
             _timers.Add(timer);
             return timer;
         }
 
-        public Timer Add(Action function, float time, bool repeat, int repeatCount)
+        /// <summary>
+        /// Adds a Timer to this Timers instance
+        /// </summary>
+        /// <param name="duration">How long this timer will last.</param>
+        /// <param name="repeatCount">How many times the Timer will repeat</param>
+        /// <param name="callback">An action that will be called when this timer repeats.</param>
+        /// <returns></returns>
+        public Timer Add(float duration, int repeatCount, Action callback)
         {
-            var timer = new Timer(function, time, repeatCount);
+            var timer = new Timer(duration, repeatCount, callback);
             _timers.Add(timer);
             return timer;
         }
