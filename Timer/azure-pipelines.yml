@@ -23,7 +23,8 @@ steps:
     outputVariable: 'PullRequest.DescriptionContent'
     isOutput: true
     stripIdentifiers: false
-  - script: echo $(RetrievePullRequestDescription.PullRequest.DescriptionContent)
+
+- script: echo $(RetrievePullRequestDescription.PullRequest.DescriptionContent)
 
 # Add git commit message that will be picked up by GitVersion ("+semver: patch/minor/major")
 # Depending on the Pull Request description, where the developer has marked the type of change
