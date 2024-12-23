@@ -19,6 +19,3 @@ GameTimer timer = new(0.2f, loopCount: text.Length, () => {
     Console.WriteLine(text.Substring(0, timer.Count));
 });
 ```
-
-
-### Delays
