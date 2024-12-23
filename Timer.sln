@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer", "Timer\Timer.csproj", "{672A1C2D-2138-4107-8A20-9A1499772F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer", "Timer\Timer.csproj", "{672A1C2D-2138-4107-8A20-9A1499772F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimersTest", "TimersTest\TimersTest.csproj", "{460B9DE0-1FDE-4045-B667-89DEF8A8E431}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{672A1C2D-2138-4107-8A20-9A1499772F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{672A1C2D-2138-4107-8A20-9A1499772F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{672A1C2D-2138-4107-8A20-9A1499772F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460B9DE0-1FDE-4045-B667-89DEF8A8E431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460B9DE0-1FDE-4045-B667-89DEF8A8E431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460B9DE0-1FDE-4045-B667-89DEF8A8E431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460B9DE0-1FDE-4045-B667-89DEF8A8E431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

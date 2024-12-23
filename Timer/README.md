@@ -1,0 +1,1 @@
+This an engine/framework agnostic framework meant to be used to create timers for games.
