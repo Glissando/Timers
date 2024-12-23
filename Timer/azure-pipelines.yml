@@ -83,8 +83,8 @@ steps:
     nuGetServiceConnections: 'nuget pipeline'
 
 - script: |
-    git tag $(GitVersion.NugetVersionV2)
-    git push origin $(GitVersion.NugetVersionV2)
+    git tag $(GitVersion.MajorMinorPatch)
+    git push origin $(GitVersion.MajorMinorPatch)
   workingDirectory: $(Build.SourcesDirectory)
 
 - task: NuGetCommand@2
