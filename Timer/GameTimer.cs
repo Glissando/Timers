@@ -111,7 +111,7 @@
             _elapsedTime += deltaTime;
             _duration = _loopInterval - _elapsedTime;
 
-            while (_elapsedTime >= _loopInterval)
+            while (_elapsedTime >= _loopInterval && !IsFinished)
             {
                 _duration = _loopInterval;
                 _elapsedTime = MathF.Max(0f, _elapsedTime - _loopInterval);
