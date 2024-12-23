@@ -6,14 +6,14 @@
         readonly float _loopInterval = 0f; //the total time that must be passed for a loop
         readonly float _delay; //The amount of delay before the timer can start
         float _delayTime;
-        readonly int _repeatCount; //How many iterations must this timer go through if it loops
+        readonly int _loopCount; //How many iterations must this timer go through if it loops
         private float _duration = 0.0f;
         
         public float Duration { get => _loopInterval; }
         /// <summary>
         /// How many iterations must this timer go through if it loops
         /// </summary>
-        public int LoopCount { get => _repeatCount; }
+        public int LoopCount { get => _loopCount; }
 
         /// <summary>
         /// How many times has this Timer Completed. This will have a maximum of 1 if the timer is not repeatable.
@@ -61,22 +61,22 @@
 
         }
 
-        public GameTimer(float duration, int repeatCount, Action callback) : this(callback, duration, repeatCount)
+        public GameTimer(float loopDuration, int loopCount, Action callback) : this(callback, loopDuration, loopCount)
         {
 
         }
 
-        public GameTimer(float duration, int repeatCount) : this(null, duration, repeatCount)
+        public GameTimer(float loopDuration, int loopCount) : this(null, loopDuration, loopCount)
         {
 
         }
 
-        public GameTimer(float duration, int repeatCount, float delay, Action callback) : this(callback, duration, repeatCount, delay)
+        public GameTimer(float loopDuration, int loopCount, float delay, Action callback) : this(callback, loopDuration, loopCount, delay)
         {
 
         }
 
-        private GameTimer(Action? callback, float duration, int repeatCount = 0, float delay = 0.0f)
+        private GameTimer(Action? callback, float duration, int loopCount = 0, float delay = 0.0f)
         {
 #if DEBUG
             if (delay < 0f)
@@ -89,7 +89,7 @@
             }
 #endif
             _loopInterval = duration;
-            _repeatCount = repeatCount;
+            _loopCount = loopCount;
             _delay = delay;
             _callback = callback ?? _callback;
         }
@@ -116,12 +116,12 @@
                 _duration = _loopInterval;
                 _elapsedTime = MathF.Max(0f, _elapsedTime - _loopInterval);
 
-                if (_repeatCount != 0 && Count < _repeatCount)
+                if (_loopCount != 0 && Count < _loopCount)
                 {
                     OnLoop?.Invoke();
                     Count++;
                 }
-                else if (_repeatCount >= 0)
+                else if (_loopCount >= 0)
                 {
                     OnFinish?.Invoke();
                     IsFinished = true;

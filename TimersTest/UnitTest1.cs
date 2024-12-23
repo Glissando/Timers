@@ -47,7 +47,7 @@ namespace TimersTest
         public void TestLoopCallback()
         {
             Timers timers = new();
-            GameTimer timer = new(5f, repeatCount: 10);
+            GameTimer timer = new(5f, loopCount: 10);
             int x = 0;
             timer.OnLoop += () => x++;
             timers.Add(timer);
@@ -64,7 +64,7 @@ namespace TimersTest
         public void TestLoopOverflowCallback()
         {
             Timers timers = new();
-            GameTimer timer = new(5f, repeatCount: 10);
+            GameTimer timer = new(5f, loopCount: 10);
             int x = 0;
             timer.OnLoop += () => x++;
             timers.Add(timer);

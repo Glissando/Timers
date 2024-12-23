@@ -38,12 +38,12 @@
         /// Adds a Timer to this Timers instance
         /// </summary>
         /// <param name="duration">How long this timer will last.</param>
-        /// <param name="repeatCount">How many times the Timer will repeat</param>
+        /// <param name="loopCount">How many times the Timer will repeat</param>
         /// <param name="callback">An action that will be called when this timer repeats.</param>
         /// <returns></returns>
-        public GameTimer Add(float duration, int repeatCount, Action callback)
+        public GameTimer Add(float duration, int loopCount, Action callback)
         {
-            var timer = new GameTimer(duration, repeatCount, callback);
+            var timer = new GameTimer(duration, loopCount, callback);
             _timers.Add(timer);
             return timer;
         }
